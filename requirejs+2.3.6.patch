@@ -1,0 +1,31 @@
+diff --git a/node_modules/requirejs/bin/r.js b/node_modules/requirejs/bin/r.js
+index 5ca85bc..b05315d 100755
+--- a/node_modules/requirejs/bin/r.js
++++ b/node_modules/requirejs/bin/r.js
+@@ -24804,7 +24804,7 @@ exports.minify = function(files, options, name) {
+         source_map = source_map + "";
+     }
+
+-    var mappingUrlPrefix = "\n//# sourceMappingURL=";
++    var mappingUrlPrefix = "\n/" + "/# sourceMappingURL=";
+     if (options.sourceMapInline) {
+         stream += mappingUrlPrefix + "data:application/json;charset=utf-8;base64," + new Buffer(source_map).toString("base64");
+     } else if (options.outSourceMap && typeof options.outSourceMap === "string" && options.sourceMapUrl !== false) {
+@@ -26928,7 +26928,7 @@ define('rhino/optimize', ['logger', 'env!env/file'], function (logger, file) {
+                     file.saveFile(outFileNameMap,
+                         file.readFile(outFileNameMap).replace(mapRegExp, '"file":"' + baseName + '"'));
+
+-                    fileContents = optimized + "\n//# sourceMappingURL=" + outBaseName + ".map";
++                    fileContents = optimized + "\n/" + "/# sourceMappingURL=" + outBaseName + ".map";
+                 } else {
+                     fileContents = optimized;
+                 }
+@@ -28598,7 +28598,7 @@ define('build', function (require) {
+                                 if (builtModule.sourceMap) {
+                                     baseName = module._buildPath.split('/');
+                                     baseName = baseName.pop();
+-                                    finalText += '\n//# sourceMappingURL=' + baseName + '.map';
++                                    finalText += '\n/' + '/# sourceMappingURL=' + baseName + '.map';
+                                     file.saveUtf8File(module._buildPath + '.map', builtModule.sourceMap);
+                                 }
+                                 file.saveUtf8File(module._buildPath + '-temp', finalText);
