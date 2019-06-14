@@ -26,3 +26,7 @@ The only workaround I've found is pretty ugly: use [patch-package](https://www.n
 -    var mappingUrlPrefix = "\n//# sourceMappingURL=";
 +    var mappingUrlPrefix = "\n/" + "/# sourceMappingURL=";
 ```
+
+## Update:
+
+It looks like this is a known issue: https://github.com/parcel-bundler/parcel/issues/2408, and even has a PR to address it: https://github.com/parcel-bundler/parcel/pull/2427
